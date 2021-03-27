@@ -14,11 +14,17 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 # Data is located at:
 # "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 
-ds = ### YOUR CODE HERE ###
+#  path to URL from Chrome DevTools Console
+url = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
+
+#  read remote URL data to DataFrame
+ds = pd.read_csv(url)
 
 x, y = clean_data(ds)
 
 # TODO: Split data into train and test sets.
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
 
 ### YOUR CODE HERE ###a
 
@@ -30,7 +36,7 @@ def clean_data(data):
     weekdays = {"mon":1, "tue":2, "wed":3, "thu":4, "fri":5, "sat":6, "sun":7}
 
     # Clean and one hot encode data
-    x_df = data.to_pandas_dataframe().dropna()
+    x_df = data.dropna()
     jobs = pd.get_dummies(x_df.job, prefix="job")
     x_df.drop("job", inplace=True, axis=1)
     x_df = x_df.join(jobs)
@@ -47,9 +53,8 @@ def clean_data(data):
     x_df["month"] = x_df.month.map(months)
     x_df["day_of_week"] = x_df.day_of_week.map(weekdays)
     x_df["poutcome"] = x_df.poutcome.apply(lambda s: 1 if s == "success" else 0)
-
     y_df = x_df.pop("y").apply(lambda s: 1 if s == "yes" else 0)
-    
+    return x_df, y_df #two outputs, x_df and y_df
 
 def main():
     # Add arguments to script
