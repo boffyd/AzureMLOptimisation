@@ -14,19 +14,11 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 # Data is located at:
 # "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 
-#  path to URL from Chrome DevTools Console
+#  path to URL
 url = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 
 #  read remote URL data to DataFrame
-ds = pd.read_csv(url)
-
-x, y = clean_data(ds)
-
-# TODO: Split data into train and test sets.
-
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
-
-### YOUR CODE HERE ###a
+ds = TabularDatasetFactory.from_delimited_files(url,separator = ',')
 
 run = Run.get_context()
 
@@ -55,6 +47,12 @@ def clean_data(data):
     x_df["poutcome"] = x_df.poutcome.apply(lambda s: 1 if s == "success" else 0)
     y_df = x_df.pop("y").apply(lambda s: 1 if s == "yes" else 0)
     return x_df, y_df #two outputs, x_df and y_df
+
+x, y = clean_data(ds)
+
+# TODO: Split data into train and test sets.
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
 
 def main():
     # Add arguments to script
