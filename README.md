@@ -21,7 +21,7 @@ The pipeline architectre loosely followed the below order.
 2. Preprocess the data.  The hyperdrive process included a custom script that allowed for pre-processing and cleaning of the data, splitting into test/train portions and then running a logistic model based on a hyperdrive parameter sampler.  The hyperdrive ran through a controlled search to optimise the model through various iterations, including an early termination rule (in this case bandit)
 
 **What are the benefits of the parameter sampler you chose?**
-The parameter sampler chosen .....
+Random Parameter sampling has the advantage of being quick.  Typically grid searching is used to narrow done on a parameter zone, and users can then use Random numbers around this area for better effectiveness.
 
 **What are the benefits of the early stopping policy you chose?**
 
