@@ -6,8 +6,7 @@ In this project, we build and optimize an Azure ML pipeline using the Python SDK
 This model is then compared to an Azure AutoML run.
 
 ## Summary
-**In 1-2 sentences, explain the problem statement: e.g "This dataset contains data about... we seek to predict..."**
-**Problem Statement
+**Problem Statement**
 This dataset is a banking dataset, where we are seeking to classify whether or not a load is worth while pursuing, with the output being a binary Yes (Y) or No (N).  There are 21 variables including the target variable "y".
 
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
