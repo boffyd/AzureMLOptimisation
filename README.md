@@ -32,6 +32,7 @@ The AutoML model, uses the above clean_data script for preprocessing, and then i
 
 ## Pipeline comparison
 **Compare the two models and their performance. What are the differences in accuracy? In architecture? If there was a difference, why do you think there was one?**
+
 They Hyperdrive using Logistic Regression scored 0.908 accuracy
 They AutoML Classification scored best score was LightGBM classifier with an accuracy of 0.91142.
 
