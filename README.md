@@ -9,6 +9,8 @@ This model is then compared to an Azure AutoML run.
 **Problem Statement**
 This dataset is a banking dataset, where we are seeking to classify whether or not a load is worth while pursuing, with the output being a binary Yes (Y) or No (N).  There are 21 variables including the target variable "y".  The analyis was more about using custom SCIKIT learn python scripts, vs using AutoML on the same dataset and whether on method would converge more easily.
 
+The best performing model was the AutoML LightGBM classifier with an accuracy of 0.91142
+
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
 
 
@@ -32,7 +34,7 @@ The AutoML model, uses the above clean_data script for preprocessing, and then i
 ## Pipeline comparison
 **Compare the two models and their performance. What are the differences in accuracy? In architecture? If there was a difference, why do you think there was one?**
 They Hyperdrive using Logistic Regression scored 0.908 accuracy
-They AutoML Classification scored best score was XGBoostClassifier, scoring 0.9132 accuracy.
+They AutoML Classification scored best score was LightGBM classifier with an accuracy of 0.91142.
 
 Some of the architectural differences in this case was that cross fold validation was used in AutoML vs Test Train only, which can increase the model learning.  Additionally, logistic regression isn't typically one of the highest performing model types.  Having a substantial amount of high performing classification engines particauraly XGBoost and other ensemble techniques will typically work better than a weak learner such as logistic classification.
 
