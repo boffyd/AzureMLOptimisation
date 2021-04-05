@@ -41,10 +41,5 @@ Some of the architectural differences in this case was that cross fold validatio
 
 ## Future work
 **What are some areas of improvement for future experiments? Why might these improvements help the model?**
+
 Future work could consider grid sampling for the data network, longer time for termination checks and a larger range of input variables for the Hyperdrive.  Simiarly for the AutoML work, understanding the architecture and performance, consideration to the experiment timeout duration (i.e. make it greater than 30 minutes).  There was minor feature engineering included in the work however this could also be further explored.
-
-
-## Proof of cluster clean up
-**If you did not delete your compute cluster in the code, please complete this section. Otherwise, delete this section.**
-**Image of cluster marked for deletion**
-Refer to ibynb file for proof of deletion.
