@@ -9,14 +9,13 @@ This model is then compared to an Azure AutoML run.
 **Problem Statement**
 This dataset is a banking dataset, where we are seeking to classify whether or not a load is worth while pursuing, with the output being a binary Yes (Y) or No (N).  There are 21 variables including the target variable "y".  The analyis was more about using custom SCIKIT learn python scripts, vs using AutoML on the same dataset and whether on method would converge more easily.
 
-The best performing model was the AutoML LightGBM classifier with an accuracy of 0.91142
 
-**In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
+**Solution**
+The best performing model was the AutoML LightGBM classifier with an accuracy of 0.91142
 
 
 ## Scikit-learn Pipeline
-**Explain the pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
-**Pipeline Architecture
+**Pipeline Architecture**
 The pipeline architectre loosely followed the below order.
 1. Download dataset, in this case there was a predefined URL with CSV
 2. Preprocess the data.  The hyperdrive process included a custom script that allowed for pre-processing and cleaning of the data, including dropping NA's, missing data, encoding, splitting into test/train portions and then running a logistic model based on a hyperdrive parameter sampler, which is passed from the python sdk.  The accuracy of the model is measured and used as the defining metric for classification.  The hyperdrive ran through a controlled search to optimise the model through various iterations, including an early termination rule (in this case bandit). 
