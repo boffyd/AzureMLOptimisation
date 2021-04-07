@@ -11,8 +11,7 @@ This dataset is a banking dataset, where we are seeking to classify whether or n
 
 
 **Solution**
-The best performing model was the AutoML LightGBM classifier with an accuracy of 0.91142
-
+The best performing model was the AutoML Voting Ensemble classifier with an accuracy of 0.9170
 
 ## Scikit-learn Pipeline
 **Pipeline Architecture**
